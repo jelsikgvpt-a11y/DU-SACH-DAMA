@@ -12,12 +12,12 @@ def create_chessboard():
 
 
 def check_it(x, y):
-    # kontrola stĺpca
+    
     for i in range(8):
         if chessboard[i][x] == 1:
             return False
 
-    # kontrola diagonál
+    
     for i in range(8):
         for j in range(8):
             if j + i == x + y:
@@ -65,13 +65,13 @@ def damy(n):
     if n == 8:
         counter += 1
 
-        # nový obrázok pre každé riešenie
+       
         img = Image.new('RGB', (640, 640), color='white')
 
         obr(img)
         nakresli_damy(img)
 
-        # uloženie obrázka
+        
         img.save(f"riesenie_{counter}.png")
 
         print(chessboard)
@@ -83,7 +83,7 @@ def damy(n):
         if check_it(i, n):
             chessboard[n][i] = 1
 
-            # pokračujeme ďalej a hľadáme aj ostatné riešenia
+            
             damy(n + 1)
 
             chessboard[n][i] = 0
@@ -93,3 +93,4 @@ create_chessboard()
 damy(0)
 
 print("Počet riešení:", counter)
+
